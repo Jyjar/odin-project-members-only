@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Create Message</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <h1>Create Message</h1>
@@ -13,7 +14,7 @@
         <input id="title" name="title" placeholder="title" type="text" required>
         <label for="message">Message:</label>
         <textarea id="message" name="message" placeholder="text" rows="10" cols="40" required></textarea>
-        <button type="submit">Create Message</button>
+        <button type="submit" class="button">Create Message</button>
     </form>
     <% } else { %>
     <p><strong>Username:</strong> You need to be <a href="/log-in">Logged in</a> to create a message.</p>

@@ -3,21 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Members Only</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <% if (locals.user) {%>
     <h1>Hello <%= user.username %></h1>
-    <a href="/log-out">LOG OUT</a>
-  <% } %>
+    <a href="/log-out" class="button">Log out</a>
+  <% } else { %>
+    <h1>Welcome!</h1>
+    <% } %>
   <% if (messages) { %>
     <% messages.forEach(message => { %>
       <div class="message">
         <% if (locals.user) { %>
+          <p><strong>Title:</strong> <%= message.title %></p>
           <p><strong>Username:</strong> <%= message.username %></p>
           <p><strong>Message:</strong> <%= message.text %></p>
           <p><strong>Date:</strong> <%= message.timestamp.toLocaleString() %></p>
         <% } else { %>
           <p><strong>Username:</strong> You need to be <a href="/log-in">Logged in</a> to see username.</p>
+          <p><strong>Title:</strong> <%= message.title %></p>
           <p><strong>Message:</strong> <%= message.text %></p>
           <p><strong>Date:</strong> <%= message.timestamp.toLocaleString() %></p>
         <% } %>
@@ -26,6 +31,6 @@
   <% } else { %>
     <p>No messages available.</p>
   <% } %>
-  <a href="/create-message">Create message</a>
+  <a href="/create-message" class="button">Create message</a>
 </body>
 </html>

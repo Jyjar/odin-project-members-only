@@ -4,6 +4,7 @@ async function getAllMessages() {
     const result = await pool.query(`
         SELECT 
             messages.id,
+            messages.title,
             messages.text,
             messages.timestamp,
             users.username
