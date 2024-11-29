@@ -6,17 +6,26 @@
 </head>
 <body>
   <% if (locals.user) {%>
-    <h1>WELCOME BACK <%= user.username %></h1>
+    <h1>Hello <%= user.username %></h1>
     <a href="/log-out">LOG OUT</a>
+  <% } %>
+  <% if (messages) { %>
+    <% messages.forEach(message => { %>
+      <div class="message">
+        <% if (locals.user) { %>
+          <p><strong>Username:</strong> <%= message.username %></p>
+          <p><strong>Message:</strong> <%= message.text %></p>
+          <p><strong>Date:</strong> <%= message.timestamp.toLocaleString() %></p>
+        <% } else { %>
+          <p><strong>Username:</strong> You need to be <a href="/log-in">Logged in</a> to see username.</p>
+          <p><strong>Message:</strong> <%= message.text %></p>
+          <p><strong>Date:</strong> <%= message.timestamp.toLocaleString() %></p>
+        <% } %>
+      </div>
+    <% }) %>
   <% } else { %>
-    <h1>please log in</h1>
-    <form action="/log-in" method="POST">
-      <label for="username">Username</label>
-      <input id="username" name="username" placeholder="username" type="text" />
-      <label for="password">Password</label>
-      <input id="password" name="password" type="password" />
-      <button>Log In</button>
-    </form>
-  <%}%>
+    <p>No messages available.</p>
+  <% } %>
+  <a href="/create-message">Create message</a>
 </body>
 </html>

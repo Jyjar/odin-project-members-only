@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create Message</h1>
+    <% if (locals.user) { %>
+    <form action="" method="POST">
+        <label for="title">Title:</label>
+        <input id="title" name="title" placeholder="title" type="text" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="text" rows="10" cols="40" required></textarea>
+        <button type="submit">Create Message</button>
+    </form>
+    <% } else { %>
+    <p><strong>Username:</strong> You need to be <a href="/log-in">Logged in</a> to create a message.</p>
+    <% } %>
+</body>
+</html>

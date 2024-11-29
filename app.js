@@ -1,7 +1,6 @@
 const path = require("node:path");
 const { Pool } = require("pg");
 const express = require("express");
-const bcrypt = require("bcryptjs");
 const session = require("express-session");
 const passport = require("./db/passport.js");
 const indexRouter = require("./routes/indexRouter.js");
